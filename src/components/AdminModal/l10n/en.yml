@@ -1,0 +1,7 @@
+title: What can this admin do?
+can_change_info: Change group info
+can_ban: Ban users
+can_delete_message: Delete messages
+can_pin_message: Pin messages
+can_invite: Invite users via link
+can_add_admins: Add new admins
