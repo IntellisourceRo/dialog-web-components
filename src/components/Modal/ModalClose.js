@@ -21,7 +21,7 @@ function ModalClose(props: Props): React.Element<any> {
   if (props.pending) {
     return (
       <div className={className}>
-        <Spinner type="round" />
+        <Spinner type="round" className={styles.spinner} />
       </div>
     );
   }
