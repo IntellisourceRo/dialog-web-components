@@ -20,6 +20,23 @@
   align-content: center;
   align-items: center;
   max-width: 100%;
+
+  &:hover {
+    & .switcher {
+      background-color: var(--switcher-active-background-color);
+
+      &::before {
+        background-color: color(var(--switcher-dot-color) alpha(98%));
+        box-shadow: 0 2px 2px 0 color(#000 alpha(30%));
+      }
+    }
+
+    &.checked {
+      & .switcher {
+        background-color: var(--switcher-checked-active-background-color);
+      }
+    }
+  }
 }
 
 .input {
@@ -51,15 +68,6 @@
     transform: translateZ(0);
     border-radius: 100%;
     background-color: var(--switcher-dot-color);
-  }
-
-  &:hover {
-    background-color: var(--switcher-active-background-color);
-
-    &::before {
-      background-color: color(var(--switcher-dot-color) alpha(98%));
-      box-shadow: 0 2px 2px 0 color(#000 alpha(30%));
-    }
   }
 
   &:active {
@@ -106,9 +114,9 @@
       background-color: var(--switcher-active-dot-color);
     }
 
-    &:hover {
+    /*&:hover {
       background-color: var(--switcher-checked-active-background-color);
-    }
+    }*/
   }
 }
 
