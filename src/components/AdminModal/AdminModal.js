@@ -70,7 +70,7 @@ class AdminModal extends PureComponent {
               rounded={false}
               className={styles.footerButton}
             >
-              Cancel
+              <Text id="AdminModal.cancel" />
             </Button>
             <Button
               onClick={this.handleSubmit}
@@ -80,7 +80,7 @@ class AdminModal extends PureComponent {
               theme="success"
               className={styles.footerButton}
             >
-              Add administrator
+              <Text id="AdminModal.add_admin" />
             </Button>
           </ModalFooter>
         </div>

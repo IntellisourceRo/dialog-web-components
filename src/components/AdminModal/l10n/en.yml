@@ -6,3 +6,5 @@ can_delete_message: Delete messages
 can_pin_message: Pin messages
 can_invite: Invite users via link
 can_add_admins: Add new admins
+add_admin: Add administrstor
+cancel: Cancel
