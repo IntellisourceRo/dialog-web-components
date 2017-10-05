@@ -8,88 +8,89 @@ import classNames from 'classnames';
 import { Text } from '@dlghq/react-l10n';
 import Fieldset from '../Fieldset/Fieldset';
 import Switcher from '../Switcher/Switcher';
+import Button from '../Button/Button';
 import styles from './AdminModal.css';
 
 type UserRights = {
-  can_change_info: boolean,
-  can_ban: boolean,
-  can_pin_message: boolean,
-  can_delete_message: boolean,
-  can_invite: boolean,
-  can_add_admins: boolean,
+  canChangeInfo: boolean,
+  canBan: boolean,
+  canPinMessage: boolean,
+  canDeleteMessage: boolean,
+  canInvite: boolean,
+  canAddAdmins: boolean
 };
 
 export type Props = {
-  rights: UserRights
+  rights: UserRights,
+  onChange: (rights: UserRights) => mixed
 };
 
 class AdminModalForm extends PureComponent {
   props: Props;
 
   handleChange = (value, event) => {
-    console.debug('handleChange');
     this.props.onChange({
       ...this.props.rights,
       [event.target.name]: value
-    })
+    });
   };
 
   render() {
-    console.debug(this.props)
-    const { rights: { can_change_info, can_ban, can_delete_message, can_pin_message, can_invite, can_add_admins } } = this.props;
+    console.debug('AdminModalForm', this.props);
+    const { rights: { canChangeInfo, canBan, canDeleteMessage, canPinMessage, canInvite, canAddAdmins } } = this.props;
 
     return (
       <form className={styles.form}>
-        <Fieldset legend="AdminModal.title">
+        <Fieldset legend="AdminModal.legend">
           <Switcher
-            id="can_change_info"
-            name="can_change_info"
-            value={can_change_info}
+            id="canChangeInfo"
+            name="canChangeInfo"
+            value={canChangeInfo}
             onChange={this.handleChange}
             className={styles.switcher}
           >
             <Text id="AdminModal.can_change_info" />
           </Switcher>
           <Switcher
-            id="can_ban"
-            name="can_ban"
-            value={can_ban}
+            id="canBan"
+            name="canBan"
+            value={canBan}
             onChange={this.handleChange}
             className={styles.switcher}
           >
             <Text id="AdminModal.can_ban" />
           </Switcher>
           <Switcher
-            id="can_delete_message"
-            name="can_delete_message"
-            value={can_delete_message}
+            id="canDeleteMessage"
+            name="canDeleteMessage"
+            value={canDeleteMessage}
             onChange={this.handleChange}
             className={styles.switcher}
           >
             <Text id="AdminModal.can_delete_message" />
           </Switcher>
           <Switcher
-            id="can_pin_message"
-            name="can_pin_message"
-            value={can_pin_message}
+            id="canPinMessage"
+            name="canPinMessage"
+            value={canPinMessage}
             onChange={this.handleChange}
             className={styles.switcher}
           >
             <Text id="AdminModal.can_pin_message" />
           </Switcher>
           <Switcher
-            id="can_invite"
-            name="can_invite"
-            value={can_invite}
+            id="canInvite"
+            name="canInvite"
+            value={canInvite}
             onChange={this.handleChange}
             className={styles.switcher}
           >
             <Text id="AdminModal.can_invite" />
           </Switcher>
           <Switcher
-            id="can_add_admins"
-            name="can_add_admins"
-            value={can_add_admins}
+            id="canAddAdmins"
+            name="canAddAdmins"
+            value={canAddAdmins}
             onChange={this.handleChange}
             className={styles.switcher}
           >

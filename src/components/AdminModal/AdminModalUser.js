@@ -23,7 +23,7 @@ class AdminModalUser extends PureComponent {
       <div className={styles.user}>
         <Avatar
           className={styles.avatar}
-          size={80}
+          size={64}
           title={name}
           image={bigAvatar}
           placeholder={placeholder}

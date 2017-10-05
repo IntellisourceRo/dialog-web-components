@@ -1,4 +1,5 @@
-title: What can this admin do?
+title: Add admin
+legend: What can this admin do?
 can_change_info: Change group info
 can_ban: Ban users
 can_delete_message: Delete messages

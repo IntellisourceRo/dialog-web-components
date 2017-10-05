@@ -1,14 +1,16 @@
 ```jsx
+const contacts = require('../ContactList/mock/contacts.json');
 const initialState = {
   isOpen: false,
   rights: {
-    can_change_info: true,
-    can_ban: true,
-    can_pin_message: true,
-    can_delete_message: true,
-    can_invite: true,
-    can_add_admins: false
-  }
+    canChangeInfo: true,
+    canBan: true,
+    canPinMessage: true,
+    canDeleteMessage: false,
+    canInvite: true,
+    canAddAdmins: false
+  },
+  current: null
 };
 
 const user = {
@@ -17,8 +19,8 @@ const user = {
   "nick": "nkt",
   "about": "¯\\_(ツ)_/¯\n¯\\_(ツ)_/¯",
   "sex": "unknown",
-  "avatar": "https://cdn.dlg.im/ZfVVcxn7G80o5SCAf1KfCFNa/file_-226603708555311607/small-avatar.jpg?AWSAccessKeyId=3VPQW52VF5C0DJOZ7E1M&Expires=1507061831&Signature=xUJxEoc8HiFNkpdvbcnuTliQ0RI%3D",
-  "bigAvatar": "https://cdn.dlg.im/ZfVVcxn7G80o5SCAf1KfCFNa/file_736227160311846332/large-avatar.jpg?AWSAccessKeyId=3VPQW52VF5C0DJOZ7E1M&Expires=1507061831&Signature=%2FeYiZFtx2ewku7AEyXLcHhJ%2Fo0Y%3D",
+  "avatar": "https://www.gravatar.com/avatar/19c935592c57cbeeec09a3b3d23b5b10",
+  "bigAvatar": "https://www.gravatar.com/avatar/19c935592c57cbeeec09a3b3d23b5b10",
   "placeholder": "orange",
   "isContact": true,
   "isBot": false,
@@ -45,6 +47,8 @@ const handleOpen = () => setState({ isOpen: true });
       <AdminModal
         user={user}
         rights={state.rights}
+        users={contacts}
+        current={state.current}
         {...actions}
       />
     ) : null
