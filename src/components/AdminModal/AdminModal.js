@@ -18,6 +18,7 @@ import ModalFooter from '../Modal/ModalFooter';
 import AdminModalUser from './AdminModalUser';
 import AdminModalForm from './AdminModalForm';
 import AdminModalUserList from './AdminModalUserList/AdminModalUserList';
+import AdminModalUserSearch from './AdminModalUserSearch/AdminModalUserSearch';
 import styles from './AdminModal.css';
 
 type Props = {
@@ -48,7 +49,14 @@ class AdminModal extends PureComponent {
     this.setState({ current: null });
   };
 
-  handleSubmit =() => {};
+  handleSubmit = () => {
+    this.props.onSubmit(this.props.rights);
+    this.setState({ current: null });
+  };
+
+  handleSearchChange = (value) => {
+    this.setState({ value });
+  };
 
   renderContent() {
     if (this.state.current) {
@@ -88,11 +96,17 @@ class AdminModal extends PureComponent {
     }
 
     return (
-      <ModalBody className={styles.list}>
-        <AdminModalUserList
-          users={this.props.users}
-          onUserClick={this.handleClick}
+      <ModalBody className={styles.body}>
+        <AdminModalUserSearch
+          value={this.state.value}
+          onChange={this.handleSearchChange}
         />
+        <div className={styles.list}>
+          <AdminModalUserList
+            users={this.props.users}
+            onUserClick={this.handleClick}
+          />
+        </div>
       </ModalBody>
     );
   }

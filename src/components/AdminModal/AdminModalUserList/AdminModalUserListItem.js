@@ -3,6 +3,7 @@
  * @flow
  */
 
+import type { Peer, User } from '@dlghq/dialog-types';
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import { Text } from '@dlghq/react-l10n';
@@ -12,13 +13,16 @@ import getAvatarPlaceholder from '../../../utils/getAvatarPlaceholder';
 import PeerInfoTitle from '../../PeerInfoTitle/PeerInfoTitle';
 
 export type Props = {
+  user: User,
+  onClick: (peer: Peer) => mixed,
+  style: Object
 };
 
 class AdminModalUserListItem extends PureComponent {
   props: Props;
 
   handleClick = () => {
-    this.props.onClick(this.props.user.peer.id);
+    this.props.onClick(this.props.user.peer);
   };
 
   renderAvatar() {

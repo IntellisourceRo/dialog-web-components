@@ -4,11 +4,9 @@
  */
 
 import React, { PureComponent } from 'react';
-import classNames from 'classnames';
 import { Text } from '@dlghq/react-l10n';
 import Fieldset from '../Fieldset/Fieldset';
 import Switcher from '../Switcher/Switcher';
-import Button from '../Button/Button';
 import styles from './AdminModal.css';
 
 type UserRights = {
@@ -36,7 +34,6 @@ class AdminModalForm extends PureComponent {
   };
 
   render() {
-    console.debug('AdminModalForm', this.props);
     const { rights: { canChangeInfo, canBan, canDeleteMessage, canPinMessage, canInvite, canAddAdmins } } = this.props;
 
     return (
