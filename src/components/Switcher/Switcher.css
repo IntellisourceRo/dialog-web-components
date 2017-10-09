@@ -4,6 +4,11 @@
 
 @import '../../styles/variables.css';
 
+:root {
+  --switcher-danger-background-color: var(--color-danger);
+  --switcher-danger-active-background-color: color(var(--color-danger) lightness(+8%));
+}
+
 .container,
 .switcher,
 .label {
@@ -35,6 +40,18 @@
       & .switcher {
         background-color: var(--switcher-checked-active-background-color);
       }
+    }
+  }
+}
+
+.danger {
+  & .switcher {
+    background-color: var(--switcher-danger-background-color) !important;
+  }
+
+  &:hover {
+    & .switcher {
+      background-color: var(--switcher-danger-active-background-color) !important;
     }
   }
 }
