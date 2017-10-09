@@ -3,17 +3,17 @@
  * @flow
  */
 
-import type { ChatMember } from "../../ActivityListMembers/types";
-import type { SelectorState } from "../../../entities";
+import type { ChatMember } from '../../ActivityListMembers/types';
+import type { SelectorState } from '../../../entities';
 import React, { PureComponent } from 'react';
 import styles from './AdminModalUserList.css';
 import { AutoSizer } from 'react-virtualized';
 import AdminModalUserListItem from './AdminModalUserListItem';
-import SelectList from "../../SelectList/SelectList";
+import SelectList from '../../SelectList/SelectList';
 
 export type Props = {
   selector: SelectorState<ChatMember>,
-  onChange: (selector: number) => mixed,
+  onChange: (selector: SelectorState<ChatMember>) => mixed,
   onSelect: (user: ChatMember) => mixed
 };
 

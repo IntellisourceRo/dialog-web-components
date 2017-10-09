@@ -3,11 +3,9 @@
  * @flow
  */
 
-import type { Peer, User } from '@dlghq/dialog-types';
-import type { ChatMember } from "../../ActivityListMembers/types";
+import type { ChatMember } from '../../ActivityListMembers/types';
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
-import { Text } from '@dlghq/react-l10n';
 import styles from './AdminModalUserList.css';
 import Avatar from '../../Avatar/Avatar';
 import getAvatarPlaceholder from '../../../utils/getAvatarPlaceholder';

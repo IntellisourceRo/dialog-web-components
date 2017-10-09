@@ -18,7 +18,7 @@ class AdminModalUser extends PureComponent {
   props: Props;
 
   render() {
-    const { user: { title, avatar, peer: { id }} } = this.props;
+    const { user: { title, avatar, peer: { id } } } = this.props;
     const placeholder = getAvatarPlaceholder(id);
 
     return (

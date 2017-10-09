@@ -1,5 +1,5 @@
-title: Add admin
-legend: What can this admin do?
+title: Add administrstor
+legend: Admin permissions
 can_change_info: Change group info
 can_ban: Ban users
 can_delete_message: Delete messages
@@ -9,3 +9,7 @@ can_add_admins: Add new admins
 add_admin: Add administrstor
 cancel: Cancel
 tranfser_ownership: Transfer group ownership
+tranfser_ownership_legend: Transfer ownership
+can_add_admins_hint:
+  enabled: This admin will be able to add new admins with the same permissions
+  disabled: This admin will not be able to add new admins

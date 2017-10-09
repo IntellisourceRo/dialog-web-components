@@ -2,16 +2,17 @@
  * Copyright 2017 dialog LLC <info@dlg.im>
  * @flow
  */
+
+import type { SelectorState } from '../../../entities';
+import type { ChatMember } from '../../ActivityListMembers/types';
 import type { ProviderContext } from '@dlghq/react-l10n';
 import React, { PureComponent } from 'react';
 import { LocalizationContextType } from '@dlghq/react-l10n';
 import styles from './AdminModalUserSearch.css';
-import {SelectorState} from "../../../entities";
-import {PeerInfo} from "@dlghq/dialog-types/src/index";
 
 type Props = {
-  selector: SelectorState<PeerInfo>,
-  onChange: (selector: SelectorState<PeerInfo>) => void
+  selector: SelectorState<ChatMember>,
+  onChange: (selector: SelectorState<ChatMember>) => void
 }
 
 type Context = ProviderContext;

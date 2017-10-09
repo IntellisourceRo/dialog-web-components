@@ -3,8 +3,8 @@
  * @flow
  */
 
-import type { SelectorState } from "../../entities";
-import type { ChatMember } from "../ActivityListMembers/types";
+import type { SelectorState } from '../../entities';
+import type { ChatMember } from '../ActivityListMembers/types';
 import type { UserRights } from './AdminModalForm';
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
@@ -29,11 +29,18 @@ type Props = {
   onChange: (selector: SelectorState<ChatMember>) => any,
   onRightsChange: (rights: UserRights) => any,
   onSubmit: (rights: UserRights) => any,
+  onOwnershipTranfser: (user: ?ChatMember) => mixed,
   onClose: () => any
 }
 
+type State = {
+  current: ?ChatMember
+};
+
 class AdminModal extends PureComponent {
   props: Props;
+  state: State;
+
   constructor(props: Props) {
     super(props);
 
@@ -42,7 +49,7 @@ class AdminModal extends PureComponent {
     };
   }
 
-  handleSelect = (user) => {
+  handleSelect = (user: ChatMember) => {
     this.setState({ current: user });
   };
 
@@ -55,7 +62,7 @@ class AdminModal extends PureComponent {
     this.setState({ current: null });
   };
 
-  handleChange = (selector) => {
+  handleChange = (selector: SelectorState<ChatMember>) => {
     this.props.onChange(selector);
   };
 
