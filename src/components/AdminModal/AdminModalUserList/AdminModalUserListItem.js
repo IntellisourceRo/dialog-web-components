@@ -25,7 +25,7 @@ class AdminModalUserListItem extends PureComponent {
   };
 
   renderAvatar() {
-    const { user: { avatar, title, peer: { id } } } = this.props;
+    const { user: { peerInfo: { avatar, title, peer: { id } } } } = this.props;
     const placeholder = getAvatarPlaceholder(id);
 
     return (
@@ -40,6 +40,7 @@ class AdminModalUserListItem extends PureComponent {
   }
 
   render() {
+    const { user: { peerInfo: { title } } } = this.props;
     const className = classNames(styles.user, {
       [styles.userHovered]: this.props.hovered
     });
@@ -49,7 +50,7 @@ class AdminModalUserListItem extends PureComponent {
         <div className={styles.userWrapper}>
           {this.renderAvatar()}
           <span className={styles.title}>
-            <PeerInfoTitle title={this.props.user.title} />
+            <PeerInfoTitle title={title} />
           </span>
         </div>
       </div>

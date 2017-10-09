@@ -28,7 +28,7 @@ class AdminModalUserList extends PureComponent {
     this.props.onSelect(user);
   };
 
-  renderRow = ({ item, hovered }): React.Element<any> => {
+  renderRow = ({ item, hovered }: $FlowIssue): React.Element<any> => {
     return (
       <AdminModalUserListItem
         hovered={hovered}

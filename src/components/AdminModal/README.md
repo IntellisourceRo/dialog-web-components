@@ -1,6 +1,11 @@
 ```jsx
 const { PeerInfoSelectorState } = require('../../entities');
 const contacts = require('../ContactList/mock/contacts.json');
+const chatMembers = contacts.map((contact) => {
+  return {
+    peerInfo: contact
+  }
+});
 
 const initialState = {
   isOpen: false,
@@ -12,7 +17,7 @@ const initialState = {
     canInvite: true,
     canAddAdmins: false
   },
-  selector: PeerInfoSelectorState.create(contacts)
+  selector: PeerInfoSelectorState.create(chatMembers)
 };
 
 const actions = {
