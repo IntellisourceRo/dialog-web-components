@@ -59,7 +59,10 @@
 .form {
   padding: 16px 32px;
 }
-
+.formButton {
+  padding-left: 0;
+  padding-right: 0;
+}
 .footer {
   padding: 0;
   overflow: hidden;
@@ -68,5 +71,10 @@
 }
 
 .footerButton {
-  flex: 1 1 50%;
+  flex: 1 1 auto;
+  @apply --flex-fix;
+}
+
+.dangerLabel {
+  color: var(--color-danger);
 }

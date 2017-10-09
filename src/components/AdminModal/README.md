@@ -19,6 +19,9 @@ const actions = {
   onChange: (selector) => setState({ selector }),
   onSelect: (user) => setState({ user }),
   onRightsChange: (rights) => setState({ rights }),
+  onOwnershipTranfser: (user) => {
+    console.debug('onOwnershipTranfser', user)
+  },
   onSubmit: (rights) => setState({ rights }),
   onClose: () => setState({ isOpen: false })
 };

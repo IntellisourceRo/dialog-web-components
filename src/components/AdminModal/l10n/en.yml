@@ -8,3 +8,4 @@ can_invite: Invite users via link
 can_add_admins: Add new admins
 add_admin: Add administrstor
 cancel: Cancel
+tranfser_ownership: Transfer group ownership

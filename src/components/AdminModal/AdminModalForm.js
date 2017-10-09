@@ -7,6 +7,7 @@ import React, { PureComponent } from 'react';
 import { Text } from '@dlghq/react-l10n';
 import Fieldset from '../Fieldset/Fieldset';
 import Switcher from '../Switcher/Switcher';
+import Button from '../Button/Button';
 import styles from './AdminModal.css';
 
 type UserRights = {
@@ -20,7 +21,8 @@ type UserRights = {
 
 export type Props = {
   rights: UserRights,
-  onChange: (rights: UserRights) => mixed
+  onChange: (rights: UserRights) => mixed,
+  onOwnershipTranfser: () => mixed
 };
 
 class AdminModalForm extends PureComponent {
@@ -91,9 +93,16 @@ class AdminModalForm extends PureComponent {
             onChange={this.handleChange}
             className={styles.switcher}
           >
-            <Text id="AdminModal.can_add_admins" />
+            <Text id="AdminModal.can_add_admins" className={styles.dangerLabel} />
           </Switcher>
         </Fieldset>
+        <Button
+          theme="danger"
+          view="link"
+          className={styles.formButton}
+          onClick={this.props.onOwnershipTranfser}>
+          <Text id="AdminModal.tranfser_ownership" />
+        </Button>
       </form>
     );
   }

@@ -59,6 +59,10 @@ class AdminModal extends PureComponent {
     this.props.onChange(selector);
   };
 
+  handleOwnershipTranfser = () => {
+    this.props.onOwnershipTranfser(this.state.current);
+  };
+
   renderContent() {
     if (this.state.current) {
       return (
@@ -70,17 +74,10 @@ class AdminModal extends PureComponent {
               rights={this.props.rights}
               onChange={this.props.onRightsChange}
               onSubmit={this.props.onSubmit}
+              onOwnershipTranfser={this.handleOwnershipTranfser}
             />
           </ModalBody>
           <ModalFooter className={styles.footer}>
-            <Button
-              onClick={this.handleCancel}
-              theme="primary"
-              rounded={false}
-              className={styles.footerButton}
-            >
-              <Text id="AdminModal.cancel" />
-            </Button>
             <Button
               onClick={this.handleSubmit}
               rounded={false}
