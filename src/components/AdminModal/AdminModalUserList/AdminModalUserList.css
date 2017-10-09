@@ -13,10 +13,10 @@
   cursor: pointer;
   padding: 0 32px;
   line-height: 1px;
+}
 
-  &:hover {
-    background-color: #f2f2f2;
-  }
+.userHovered {
+  background-color: #f2f2f2;
 }
 
 .userWrapper {

@@ -4,6 +4,7 @@
  */
 
 import type { Peer, User } from '@dlghq/dialog-types';
+import type { ChatMember } from "../../ActivityListMembers/types";
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import { Text } from '@dlghq/react-l10n';
@@ -13,16 +14,16 @@ import getAvatarPlaceholder from '../../../utils/getAvatarPlaceholder';
 import PeerInfoTitle from '../../PeerInfoTitle/PeerInfoTitle';
 
 export type Props = {
-  user: User,
-  onClick: (peer: Peer) => mixed,
-  style: Object
+  user: ChatMember,
+  onClick: (user: ChatMember) => mixed,
+  hovered: boolean
 };
 
 class AdminModalUserListItem extends PureComponent {
   props: Props;
 
   handleClick = () => {
-    this.props.onClick(this.props.user.peer);
+    this.props.onClick(this.props.user);
   };
 
   renderAvatar() {
@@ -41,8 +42,12 @@ class AdminModalUserListItem extends PureComponent {
   }
 
   render() {
+    const className = classNames(styles.user, {
+      [styles.userHovered]: this.props.hovered
+    });
+
     return (
-      <div onClick={this.handleClick} style={this.props.style} className={styles.user}>
+      <div onClick={this.handleClick} className={className}>
         <div className={styles.userWrapper}>
           {this.renderAvatar()}
           <span className={styles.title}>

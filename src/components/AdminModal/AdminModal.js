@@ -3,7 +3,8 @@
  * @flow
  */
 
-import type { User, PeerInfo } from '@dlghq/dialog-types';
+import type { SelectorState } from "../../entities";
+import type { ChatMember } from "../ActivityListMembers/types";
 import type { UserRights } from './AdminModalForm';
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
@@ -23,11 +24,11 @@ import styles from './AdminModal.css';
 
 type Props = {
   className?: string,
-  user: User,
-  users: PeerInfo[],
+  selector: SelectorState<ChatMember>,
   rights: UserRights,
-  onChange: () => any,
-  onSubmit: () => any,
+  onChange: (selector: SelectorState<ChatMember>) => any,
+  onRightsChange: (rights: UserRights) => any,
+  onSubmit: (rights: UserRights) => any,
   onClose: () => any
 }
 
@@ -41,8 +42,8 @@ class AdminModal extends PureComponent {
     };
   }
 
-  handleClick = (index) => {
-    this.setState({ current: index });
+  handleSelect = (user) => {
+    this.setState({ current: user });
   };
 
   handleCancel = () => {
@@ -54,8 +55,8 @@ class AdminModal extends PureComponent {
     this.setState({ current: null });
   };
 
-  handleSearchChange = (value) => {
-    this.setState({ value });
+  handleChange = (selector) => {
+    this.props.onChange(selector);
   };
 
   renderContent() {
@@ -63,11 +64,11 @@ class AdminModal extends PureComponent {
       return (
         <div>
           <ModalBody className={styles.body}>
-            <AdminModalUser user={this.props.user} />
+            <AdminModalUser user={this.state.current} />
             <AdminModalForm
               id="edit_used_rights"
               rights={this.props.rights}
-              onChange={this.props.onChange}
+              onChange={this.props.onRightsChange}
               onSubmit={this.props.onSubmit}
             />
           </ModalBody>
@@ -98,13 +99,14 @@ class AdminModal extends PureComponent {
     return (
       <ModalBody className={styles.body}>
         <AdminModalUserSearch
-          value={this.state.value}
-          onChange={this.handleSearchChange}
+          selector={this.props.selector}
+          onChange={this.handleChange}
         />
         <div className={styles.list}>
           <AdminModalUserList
-            users={this.props.users}
-            onUserClick={this.handleClick}
+            selector={this.props.selector}
+            onSelect={this.handleSelect}
+            onChange={this.handleChange}
           />
         </div>
       </ModalBody>

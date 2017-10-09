@@ -6,10 +6,12 @@ import type { ProviderContext } from '@dlghq/react-l10n';
 import React, { PureComponent } from 'react';
 import { LocalizationContextType } from '@dlghq/react-l10n';
 import styles from './AdminModalUserSearch.css';
+import {SelectorState} from "../../../entities";
+import {PeerInfo} from "@dlghq/dialog-types/src/index";
 
 type Props = {
-  value: string,
-  onChange: (value: string) => mixed
+  selector: SelectorState<PeerInfo>,
+  onChange: (selector: SelectorState<PeerInfo>) => void
 }
 
 type Context = ProviderContext;
@@ -23,7 +25,15 @@ class AdminModalUserSearch extends PureComponent {
   };
 
   handleChange = (event: SyntheticInputEvent) => {
-    this.props.onChange(event.target.value);
+    this.props.onChange(
+      this.props.selector.setQuery(event.target.value)
+    );
+  };
+
+  handleKeyDown = (event: SyntheticKeyboardEvent): void => {
+    this.props.onChange(
+      this.props.selector.handleKeyboardEvent(event)
+    );
   };
 
   getPlaceholder = (): string => {
@@ -36,7 +46,8 @@ class AdminModalUserSearch extends PureComponent {
         <input
           className={styles.input}
           placeholder={this.getPlaceholder()}
-          value={this.props.value}
+          value={this.props.selector.getQuery()}
+          onKeyDown={this.handleKeyDown}
           onChange={this.handleChange}
         />
       </div>
