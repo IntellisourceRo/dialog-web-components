@@ -120,6 +120,18 @@
       background-color: var(--switcher-checked-background-color) !important;
     }
   }
+
+  &:hover {
+    & .switcher {
+      background-color: var(--switcher-background-color) !important;
+    }
+
+    &.checked {
+      & .switcher {
+        background-color: var(--switcher-checked-background-color) !important;
+      }
+    }
+  }
 }
 
 .checked {
