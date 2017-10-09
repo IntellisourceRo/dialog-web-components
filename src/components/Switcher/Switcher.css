@@ -45,13 +45,15 @@
 }
 
 .danger {
-  & .switcher {
-    background-color: var(--switcher-danger-background-color) !important;
-  }
-
-  &:hover {
+  &.checked {
     & .switcher {
-      background-color: var(--switcher-danger-active-background-color) !important;
+      background-color: var(--switcher-danger-background-color) !important;
+    }
+
+    &:hover {
+      & .switcher {
+        background-color: var(--switcher-danger-active-background-color) !important;
+      }
     }
   }
 }
@@ -119,7 +121,14 @@
     & .switcher {
       background-color: var(--switcher-checked-background-color) !important;
     }
+
+    &.danger {
+      & .switcher {
+        background-color: var(--switcher-danger-background-color) !important;
+      }
+    }
   }
+
 
   &:hover {
     & .switcher {
@@ -129,6 +138,12 @@
     &.checked {
       & .switcher {
         background-color: var(--switcher-checked-background-color) !important;
+      }
+
+      &.danger {
+        & .switcher {
+          background-color: var(--switcher-danger-background-color) !important;
+        }
       }
     }
   }
